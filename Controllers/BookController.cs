@@ -17,6 +17,8 @@ namespace Book.API.Controllers
             _bookService = bookService;
         }
 
+        #region "GetBook Details Sort in .Net 5"
+
         [HttpGet]
         [Route("GetBookDetailOrderByPulisher")]
         public async Task<List<tbl_Book>> GetBookDetailOrderByPulisher()
@@ -33,6 +35,10 @@ namespace Book.API.Controllers
             return response;
         }
 
+        #endregion
+
+        #region "GetBook Details Sort in Stored Procedure in Web API"
+
         [HttpGet]
         [Route("GetSP_BookDetailOrderByPublisher")]
         public async Task<List<tbl_Book>> GetSP_BookDetailOrderByPublisher() {
@@ -47,6 +53,8 @@ namespace Book.API.Controllers
             var response = await _bookService.GetSP_BookDetailOrderByAuthor();
             return response;
         }
+
+        #endregion
 
         [HttpGet]
         [Route("GetTotalPriceValue")]
